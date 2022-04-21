@@ -1,33 +1,44 @@
 //Taller 2 TypeScript Alejandro Gomez Colorado
+//Import de la clase Serie y los datos de las series.
 import { series } from './data.js';
+//Se obtiene el body general y el body de la tabla de series.
 const seriesTbody = document.getElementById('series');
 const mainBody = document.getElementById('body');
-const functions = document.getElementById('functions');
+//Se obtiene el titulo principal.
+const title = document.getElementById("mainTitle");
+//Se obtiene el parrafo donde se dispone el promedio de temporadas de las series.
+const avgParagraph = document.getElementById("averageSeasons");
+//Se obtiene el lugar donde se disponen las cards.
+const card = document.getElementById('cards');
+//Funcion para crear la card de una serie
 function renderCardSerie(s) {
-    console.log(s);
+    console.log("Renderizando Card de la serie...");
+    card.innerHTML = "";
     let fila = document.createElement("div");
-    fila.innerHTML = `<div class="card" id="card">
+    fila.innerHTML = `<div class="card text-white bg-primary mb-3"  id="card">
                         <img class="card-img-top" src=${s.image} alt="Card image cap">
+                        
                         <div class="card-body">
                         <h4 class="card-title">${s.name}</h4>
-                        <p class="card-text">${s.description}</p>
-                        <a
+                        <p1 class="card-text">${s.description}</p1>
+                        <br>
+                        <br>
+                        <a id= "idLink"
                         href=${s.link}
                         target="_blank"
                         >Go to main page</a>
                         </div>
                         </div>`;
-    mainBody.appendChild(fila);
+    card.appendChild(fila);
 }
 //Funcion para disponer las series y su informacion en la tabla
 function renderSeriesInTable(series) {
     series.forEach(s => {
         let fila = document.createElement("tr");
-        fila.innerHTML = `<td id="idCol">${s.id}</td>
-                            <td onclick="renderCardSerie(s)">
-                            ${s.name}
-                   
-                            </td>
+        fila.setAttribute("class", "clickable");
+        fila.onclick = function () { renderCardSerie(s); };
+        fila.innerHTML = `<td>${s.id}</td>
+                            <td>${s.name}</td>
                             <td>${s.channel}</td>
                             <td>${s.seasons}</td>`;
         seriesTbody.appendChild(fila);
@@ -40,9 +51,6 @@ function getAverageSeasons(series) {
     return totalSeasons / series.length;
 }
 renderSeriesInTable(series);
-var title = document.getElementById("principalTitle");
+let averageSeasons = getAverageSeasons(series);
 title.innerText = "TV Series ";
-var averageSeasons = getAverageSeasons(series);
-let averageSeasonsString = document.createElement("p");
-averageSeasonsString.innerHTML = `<p>Seasons Average: ${averageSeasons}  </p>`;
-mainBody.appendChild(averageSeasonsString);
+avgParagraph.innerText = "Seasons Average: " + averageSeasons;

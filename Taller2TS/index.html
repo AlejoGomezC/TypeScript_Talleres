@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="lib/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller_2TS</title>
+  <link rel="stylesheet" href="lib/style.css">
 </head>
 
 <div class="container-fluid">
-  
-    <div id= "fondoTitle" style="background-color:rgb(223, 199, 255);">
+  <div class="row" id="fondoTitle">
 
-    <div id="icono" >
-      <img
-      src="https://icons.iconarchive.com/icons/limav/game-of-thrones/512/Stark-icon.png"
-      width="100"
-      height="100"
-    />
-    <h1 id="principalTitle"></h1></div>
+    <div class="col">
+      <img src="https://icons.iconarchive.com/icons/limav/game-of-thrones/512/Stark-icon.png" width="100"
+        height="100" />
+    </div>
+    <div class="col">
+      <h1 id="mainTitle"></h1>
+    </div>
 
- <br></div>
-    
-    
+  </div>
+</div>
+
+
 <body id="body">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Channel</th>
+              <th>Seasons</th>
+            </tr>
+          </thead>
+          <tbody id="series"></tbody>
+        </table>
+        <p id="averageSeasons"></p>
+      </div>
 
-    <table class="table">
-        <thead class = "thead-dark"> 
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Channel</th>
-            <th>Seasons</th>
-          </tr>
-        </thead>
-        <tbody id = "series">
+      <div class="col" id="cards"></div>
+    </div>
+  </div>
 
-        </tbody>
-      </table>
-
-    <script type="module" src="serie.js" ></script>
-    <script type="module" src="data.js" ></script>
-    <script type="module" src="main.js"></script>
-    <script id="functions">
-
-
-    </script>
-
+  <script type="module" src="serie.js"></script>
+  <script type="module" src="data.js"></script>
+  <script type="module" src="main.js"></script>
 
 </body>
+
 </html>
-
-
